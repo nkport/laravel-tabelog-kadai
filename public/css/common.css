@@ -1,0 +1,1259 @@
+/* -----------------------------------------------
+外側余白
+----------------------------------------------- */
+.m-auto {
+    margin: 0 auto;
+}
+
+.mt-0 {
+    margin-top: 0;
+}
+
+.mt-1 {
+    margin-top: 10px;
+}
+
+.mt-2 {
+    margin-top: 20px;
+}
+
+.mt-3 {
+    margin-top: 30px;
+}
+
+.mt-4 {
+    margin-top: 40px;
+}
+
+.mt-5 {
+    margin-top: 50px;
+}
+
+.-mt-5 {
+    margin-top: -50px;
+}
+
+.-mb-4 {
+    margin-bottom: -40px !important;
+}
+
+.-mb-5 {
+    margin-bottom: -50px !important;
+}
+
+.mr-tiny {
+    margin-right: 5px;
+}
+
+.mr-1 {
+    margin-right: 10px;
+}
+
+.mr-2 {
+    margin-right: 20px;
+}
+
+.mr-3 {
+    margin-right: 30px;
+}
+
+.mr-4 {
+    margin-right: 40px;
+}
+
+.mr-5 {
+    margin-right: 50px;
+}
+
+.mb-0 {
+    margin-bottom: 0 !important;
+}
+
+.mb-1 {
+    margin-bottom: 10px !important;
+}
+
+.mb-2 {
+    margin-bottom: 20px !important;
+}
+
+.mb-3 {
+    margin-bottom: 30px;
+}
+
+.mb-4 {
+    margin-bottom: 40px;
+}
+
+.mb-5 {
+    margin-bottom: 50px;
+}
+
+.mx-0 {
+    margin-right: 0;
+    margin-left: 0;
+}
+
+.mx-1 {
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.mx-2 {
+    margin-right: 20px;
+    margin-left: 20px;
+}
+
+.mx-3 {
+    margin-right: 30px;
+    margin-left: 30px;
+}
+
+.mx-4 {
+    margin-right: 40px;
+    margin-left: 40px;
+}
+
+.mx-5 {
+    margin-right: 50px;
+    margin-left: 50px;
+}
+
+.my-1 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.my-2 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.my-3 {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.my-4 {
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+/* -----------------------------------------------
+内側余白
+----------------------------------------------- */
+.p-0 {
+    padding: 0;
+}
+
+.p-1 {
+    padding: 10px;
+}
+
+.p-2 {
+    padding: 20px;
+}
+
+.p-3 {
+    padding: 30px;
+}
+
+.p-4 {
+    padding: 40px;
+}
+
+.p-5 {
+    padding: 50px;
+}
+
+.px-0 {
+    padding-right: 0;
+    padding-left: 0;
+}
+
+.px-1 {
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+.px-2 {
+    padding-right: 20px;
+    padding-left: 20px;
+}
+
+.px-3 {
+    padding-right: 30px;
+    padding-left: 30px;
+}
+
+.px-4 {
+    padding-right: 40px;
+    padding-left: 40px;
+}
+
+.px-5 {
+    padding-right: 50px;
+    padding-left: 50px;
+}
+
+.py-0 {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.py-1 {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.py-2 {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.py-3 {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.py-4 {
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.py-5 {
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.pt-0 {
+    padding-top: 0;
+}
+
+.pt-1 {
+    padding-top: 10px;
+}
+
+.pt-2 {
+    padding-top: 20px;
+}
+
+.pt-3 {
+    padding-top: 30px;
+}
+
+.pt-4 {
+    padding-top: 40px;
+}
+
+.pt-5 {
+    padding-top: 50px;
+}
+
+.pt-80 {
+    padding-top: 80px !important;
+}
+
+.pb-0 {
+    padding-bottom: 0 !important;
+}
+
+.pb-1 {
+    padding-bottom: 10px;
+}
+
+.pb-2 {
+    padding-bottom: 20px;
+}
+
+.pb-3 {
+    padding-bottom: 30px;
+}
+
+.pb-4 {
+    padding-bottom: 40px;
+}
+
+.pb-5 {
+    padding-bottom: 50px;
+}
+
+.pl-3 {
+    padding-left: 30px !important;
+}
+
+/* -----------------------------------------------
+見出し
+----------------------------------------------- */
+.h1-title img {
+    width: 50%;
+}
+
+.h2-title {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.h3-title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.h4-title {
+    font-size: 1.3rem;
+    margin-bottom: .5rem;
+}
+
+.subtitle {
+    display: block;
+    color: #666;
+    margin-top: .8rem;
+    font-weight: normal;
+    font-size: .8rem;
+    letter-spacing: 2px;
+}
+
+@media screen and (max-width: 1024px) {
+    .h2-title {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .h3-title {
+        font-size: 1.5rem;
+    }
+
+    .h4-title {
+        font-size: 1.1rem;
+        margin-bottom: .3rem;
+    }
+
+    .subtitle {
+        display: block;
+        color: #666;
+        margin-top: .3rem;
+        font-weight: normal;
+        font-size: .6rem;
+        letter-spacing: 2px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .h2-title,
+    .h3-title {
+        font-size: 1.3rem !important;
+    }
+}
+
+/* -----------------------------------------------
+文字スタイル
+----------------------------------------------- */
+p {
+    line-height: 1.7rem;
+}
+
+.font-bold {
+    font-weight: bold;
+}
+
+.txt-bold {
+    font-weight: bold;
+}
+
+.txt-white {
+    color: white;
+}
+
+.txt-red {
+    color: #740e16;
+}
+
+.txt-orange {
+    color: #f0660b;
+}
+
+.accent-red {
+    color: #c01322;
+}
+
+.accent-orange {
+    color: #ffa234;
+}
+
+@media screen and (max-width: 1024px) {
+    p {
+        line-height: 1.6rem;
+    }
+}
+
+/* -----------------------------------------------
+リンクスタイル
+----------------------------------------------- */
+a {
+    color: #000;
+    text-decoration: none;
+}
+
+@media (hover: hover) {
+
+    /* どんなリンクも */
+    a:any-link:hover {
+        cursor: pointer;
+    }
+
+    /* テキストリンク１ */
+    .text-link:hover {
+        text-decoration: underline;
+    }
+
+    .text-link-underline:hover {
+        text-decoration: none;
+    }
+
+    /* 画像の場合 */
+    a:img:hover {
+        opacity: .6;
+        transition: .5s;
+    }
+
+    /* ボタンの場合 */
+    /* button:enabled:hover {} */
+    .kadomaru-btn-red-bg:hover,
+    .kadomaru-btn-red-line:hover,
+    .kadomaru-btn-green-bg:hover,
+    .kadomaru-btn-green-bg-slim:hover,
+    .kadomaru-btn-orange-bg:hover,
+    .nav-li .auth-design:hover,
+    .nav-li .auth-design:hover {
+        opacity: .6;
+        transition: .5s ease;
+        text-decoration: none;
+    }
+
+    /* 特定できない場合 */
+    /* .button:where(:any-link, :enabled, summary):hover {} */
+
+    /* 店舗一覧のホバー処理 */
+    .zoom-effect {
+        transition: transform .5s ease;
+        display: inline-block;
+    }
+
+    .zoom-effect:hover {
+        transform: scale(1.03);
+    }
+
+}
+
+.text-link-underline {
+    text-decoration: underline;
+}
+
+/* -----------------------------------------------
+幅
+----------------------------------------------- */
+.w-10 {
+    width: 10%;
+}
+
+.w-15 {
+    width: 15% !important;
+}
+
+.w-20 {
+    width: 20% !important;
+}
+
+.w-25 {
+    width: 25% !important;
+}
+
+.w-45 {
+    width: 45%;
+}
+
+.w-50 {
+    width: 50%;
+}
+
+.w-75 {
+    width: 75%;
+}
+
+.w-100 {
+    width: 100%;
+}
+
+/* -----------------------------------------------
+左寄せ・中央寄せ・右寄せ
+----------------------------------------------- */
+.txt-left {
+    text-align: left !important;
+}
+
+.txt-right {
+    text-align: right;
+}
+
+.txt-center {
+    text-align: center;
+}
+
+/* -----------------------------------------------
+リスト
+----------------------------------------------- */
+.li-style-none {
+    list-style: none;
+}
+
+/* -----------------------------------------------
+アラート
+----------------------------------------------- */
+.alert {
+    position: relative;
+    padding: 1.5rem 1rem;
+}
+
+.alert-success {
+    color: #740e16;
+    background-color: #740e1725;
+}
+
+/* -----------------------------------------------
+flexbox（フレックスボックス）
+----------------------------------------------- */
+.flex-box {
+    display: flex;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+.justify-around {
+    justify-content: space-around;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.align-end {
+    align-items: flex-end;
+}
+
+.flex-row-reverse {
+    flex-direction: row-reverse;
+}
+
+/* -----------------------------------------------
+display（ディスプレイ）
+----------------------------------------------- */
+
+.display-none {
+    display: none;
+}
+
+.display-block {
+    display: block;
+}
+
+.display-inline {
+    display: inline;
+}
+
+/* -----------------------------------------------
+ボーダー
+----------------------------------------------- */
+.border-none {
+    border: 0 none;
+}
+
+.border-left {
+    border-left: 1px solid #ccc;
+    padding-left: 20px;
+    margin-left: 20px;
+}
+
+.border-right {
+    border-right: 1px solid #ccc;
+    padding-right: 20px;
+}
+
+/* -----------------------------------------------
+アニメーション
+----------------------------------------------- */
+.jump {
+    animation-name: bounce;
+    animation-duration: 1.2s;
+    animation-iteration-count: 2;
+    animation-timing-function: linear;
+    transform-origin: center bottom;
+}
+
+@keyframes bounce {
+    0% {
+        transform: scale(1.0, 1.0) translate(0%, 0%);
+    }
+
+    /* 初期状態 */
+    10% {
+        transform: scale(1.5, .5) translate(0%, 0%);
+    }
+
+    /* 地面に着地し、その変動で潰れだす */
+    30% {
+        transform: scale(.9, .9) translate(0%, 0%);
+    }
+
+    /* 潰れた反動で一瞬元に戻る */
+    50% {
+        transform: scale(1.0, 1.0) translate(0%, -50%);
+    }
+
+    /* 潰れた反動で縦に伸び、その勢いでバウンド開始 */
+    70% {
+        transform: scale(1.0, 1.0) translate(0%, -70%);
+    }
+
+    /* 地面に着地し、その変動で潰れだす */
+    80% {
+        transform: scale(.9, .9) translate(0%, -60%);
+    }
+
+    /* 地面に着地し、その変動で潰れだす */
+    90% {
+        transform: scale(.9, .9) translate(0%, -30%);
+    }
+
+    /* 潰れた反動が終り、空中で元に戻る */
+    100% {
+        transform: scale(1.0, 1.0) translate(0%, 0%);
+    }
+
+    /* 初期状態に戻る */
+}
+
+/* -----------------------------------------------
+全体スタイル
+----------------------------------------------- */
+html,
+body,
+input,
+textarea {
+    font-family: "Noto Sans JP", "Lato", sans-serif;
+}
+
+body {
+    background-color: #f9f2df;
+}
+
+/* -----------------------------------------------
+角丸ボックス
+----------------------------------------------- */
+.kadomaru-box {
+    padding: 3rem 2rem;
+    border-radius: 20px;
+    background-color: #fff;
+    box-shadow: 0 3px 0 0 rgba(0, 0, 0, .2);
+}
+
+@media screen and (max-width: 1024px) {
+    .kadomaru-box {
+        padding: 2rem;
+    }
+}
+
+
+/* -----------------------------------------------
+グレー角丸ボックス
+----------------------------------------------- */
+.callout {
+    position: relative;
+}
+
+.callout {
+    margin-bottom: 20px;
+    padding: 30px;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    background-color: #00000007;
+}
+
+@media screen and (max-width: 480px) {
+    .callout {
+        padding: 30px 25px;
+    }
+}
+
+/* -----------------------------------------------
+角丸ボタン
+----------------------------------------------- */
+.kadomaru-btn-red-bg {
+    padding: .7rem 1.1rem;
+    color: white;
+    background-color: #740e16;
+    border: 2px solid #740e16;
+    border-radius: 10px;
+}
+
+.kadomaru-btn-red-line {
+    padding: .7rem 1.2rem;
+    color: #740e16;
+    background-color: #fff;
+    border: 2px solid #740e16;
+    border-radius: 10px;
+}
+
+.kadomaru-btn-green-bg {
+    padding: 15px 20px;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 1.12rem;
+    background-color: #71AC67;
+}
+
+.kadomaru-btn-green-bg-slim {
+    padding: 10px 10px;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 1rem;
+    background-color: #71AC67;
+}
+
+.kadomaru-btn-orange-bg {
+    padding: 15px 20px;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 1.12rem;
+    background-color: #ffa234;
+}
+
+/* -----------------------------------------------
+角丸画像
+----------------------------------------------- */
+.kadomaru-image,
+.kadomaru-image img {
+    border-radius: 30px;
+}
+
+/* -----------------------------------------------
+FontAwesomeアイコン
+----------------------------------------------- */
+i {
+    margin-right: 5px;
+}
+
+/* -----------------------------------------------
+ヘッダーナビ
+----------------------------------------------- */
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 80px;
+    background-color: #fff;
+    z-index: 10;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center !important;
+    height: 80px;
+    padding: 0 3rem;
+    box-shadow: 0 3px 0 0 rgba(0, 0, 0, .2);
+}
+
+.nav-ul {
+    display: flex;
+    align-items: center;
+}
+
+.nav-li {
+    padding-left: 20px;
+    list-style: none;
+}
+
+/* 非会員・一般会員 */
+.lead-text {
+    color: #333;
+    font-size: .95rem;
+}
+
+/* 有料会員 */
+.nav-li .auth-design .kadomaru-btn-red-bg,
+.nav-li .auth-design .kadomaru-btn-red-line {
+    display: inline-block;
+    margin: 0;
+    padding: .5rem .7rem;
+    text-align: center;
+    margin-right: 7px;
+}
+
+.nav-li .auth-design .kadomaru-btn-red-bg i,
+.nav-li .auth-design .kadomaru-btn-red-line i {
+    margin: 0;
+    padding: 0;
+}
+
+@media screen and (max-width: 1024px) {
+    .header {
+        height: 60px;
+    }
+
+    .header .h1-title img {
+        width: 220px;
+    }
+
+    .nav {
+        height: 60px;
+        padding: 0 2rem;
+    }
+
+    .nav-li {
+        padding-left: 15px;
+    }
+
+    /* 非会員・一般会員 */
+    .lead-text {
+        margin: 0;
+        padding-left: 0;
+        font-size: .8rem;
+    }
+
+    .nav-li .guest-design .kadomaru-btn-red-bg {
+        padding: .46rem 1rem;
+    }
+
+    .nav-li .guest-design .kadomaru-btn-red-line {
+        padding: .4rem 1rem;
+    }
+
+    /* 有料会員 */
+    .nav-li .auth-design .kadomaru-btn-red-bg {
+        padding: .3rem .46rem;
+    }
+
+    .nav-li .auth-design .kadomaru-btn-red-line {
+        padding: .3rem .46rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .nav {
+        padding: 0 1.5rem;
+    }
+
+    .nav-link strong {
+        display: none;
+    }
+
+    .lead-text {
+        margin-right: 10px;
+        font-size: .72rem;
+    }
+
+    /* 非会員・一般会員 */
+    .nav-li.border-right.mx-1 {
+        margin: 0;
+        padding: 0;
+    }
+
+    .nav-li .guest-design .kadomaru-btn-red-bg,
+    .nav-li .guest-design .kadomaru-btn-red-line {
+        padding: .3rem .8rem;
+        font-size: .9rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .header .h1-title img {
+        width: 195px;
+    }
+
+    .headerNavBtn {
+        position: relative;
+        background: #740e16;
+        cursor: pointer;
+        width: 40px;
+        height: 36px;
+        border-radius: 5px;
+    }
+
+    .headerNavBtn span {
+        display: inline-block;
+        transition: all .4s;
+        position: absolute;
+        left: 11px;
+        height: 3px;
+        border-radius: 2px;
+        background: #fff;
+        width: 45%;
+    }
+
+    .headerNavBtn span:nth-of-type(1) {
+        top: 10px;
+    }
+
+    .headerNavBtn span:nth-of-type(2) {
+        top: 17px;
+    }
+
+    .headerNavBtn span:nth-of-type(3) {
+        top: 24px;
+    }
+
+    .headerNavBtn.active {
+        background: #740e16;
+    }
+
+    .headerNavBtn.active span {
+        left: 8px;
+    }
+
+    .headerNavBtn.active span:nth-of-type(1) {
+        top: 17px;
+        width: 60%;
+        transform: rotate(45deg);
+    }
+
+    .headerNavBtn.active span:nth-of-type(2) {
+        opacity: 0;
+    }
+
+    .headerNavBtn.active span:nth-of-type(3) {
+        top: 17px;
+        width: 60%;
+        transform: rotate(-45deg);
+    }
+
+    .nav-ul {
+        display: none;
+        margin: 0;
+        padding: 0;
+        transition: opacity .3s ease;
+    }
+
+    .nav-ul.active {
+        display: block;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background-color: #fff;
+        padding: 10px 20px 10px;
+        font-size: .95rem;
+        border-radius: 0 0 0 20px;
+        box-shadow: 0 3px 0 0 rgba(0, 0, 0, .2);
+    }
+
+    .nav-ul.active .nav-li,
+    .nav-ul.active .nav-li a,
+    .nav-ul.active .border-left,
+    .nav-ul.active .pr-4,
+    .nav-ul.active .py-2 {
+        border: 0 none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .nav-ul.active .pl-3 {
+        padding-left: 0 !important;
+    }
+
+    .nav-ul.active .nav-li {
+        display: block;
+        padding-bottom: 10px;
+    }
+
+    .nav-link strong {
+        display: inline-block;
+    }
+
+    .lead-text {
+        width: 150px;
+        font-size: 14px;
+        line-height: 1.2rem;
+        margin-right: 0;
+    }
+
+    .nav-li .guest-design .kadomaru-btn-red-bg,
+    .nav-li .guest-design .kadomaru-btn-red-line {
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* -----------------------------------------------
+レイアウト
+----------------------------------------------- */
+.wrapper {
+    padding: 8.5rem 0 6rem;
+}
+
+.container {
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+@media screen and (max-width: 1024px) {
+    .wrapper {
+        padding: 6.5rem 0 3.5rem;
+    }
+
+    .container {
+        margin: 0 auto;
+        width: 90%;
+        max-width: none;
+    }
+}
+
+/* -----------------------------------------------
+ページネーション
+----------------------------------------------- */
+.pagination {
+    margin: 4rem 0 0;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    list-style: none;
+}
+
+.page-item {
+    margin: 0 5px;
+    background-color: #fff;
+    border-radius: 10px;
+}
+
+.page-item:first-child .page-link,
+.page-item:last-child .page-link {
+    background-color: #ffa234;
+    border-radius: 10px;
+    font-size: 25px;
+    line-height: 35px;
+    color: #fff;
+}
+
+.page-link {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    font-size: 14px;
+    line-height: 38px;
+}
+
+.page-item.active {
+    background-color: rgba(255, 164, 52, 0.3);
+}
+
+@media screen and (max-width: 768px) {
+    .pagination {
+        margin: 1.5rem 0 0;
+        padding: 0;
+    }
+
+    .pagination li {
+        display: none;
+    }
+
+    .pagination li.active,
+    .pagination li:first-child,
+    .pagination li:nth-child(2),
+    .pagination li:nth-child(3),
+    .pagination li:nth-child(4),
+    .pagination li:nth-child(5),
+    .pagination li:nth-child(6),
+    .pagination li:last-child {
+        display: inline;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .pagination {
+        margin: 1.5rem 0 0;
+        padding: 0;
+    }
+
+    .pagination li,
+    .pagination li:nth-child(5),
+    .pagination li:nth-child(6) {
+        display: none;
+    }
+
+    .pagination li.active,
+    .pagination li:first-child,
+    .pagination li:nth-child(2),
+    .pagination li:nth-child(3),
+    .pagination li:nth-child(4),
+    .pagination li:last-child {
+        display: inline;
+    }
+}
+
+/* -----------------------------------------------
+ページトップリンク
+----------------------------------------------- */
+#page-top {
+    position: fixed;
+    right: 0;
+    bottom: 100px;
+    z-index: 2;
+    opacity: 0;
+    transform: translateY(100px);
+}
+
+#page-top a {
+    position: relative;
+    display: inline-block;
+    background: #A27400;
+    border-radius: 5px 0 0 5px;
+    width: 80px;
+    height: 80px;
+    color: #fff;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: .8rem;
+    line-height: 1rem;
+    transition: all .3s;
+}
+
+#page-top a:hover {
+    opacity: .6;
+}
+
+#page-top span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    transform: translate(-48%, -50%);
+    text-align: center;
+}
+
+#page-top span i {
+    margin: 0;
+    padding: 0;
+    font-size: 1.09rem;
+}
+
+/* 上がる動きアニメーション */
+#page-top.UpMove {
+    animation: UpAnime .5s forwards;
+}
+
+@keyframes UpAnime {
+    from {
+        opacity: 0;
+        transform: translateY(100px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 下がる動きアニメーション */
+#page-top.DownMove {
+    animation: DownAnime .5s forwards;
+}
+
+@keyframes DownAnime {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(100px);
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    #page-top a {
+        width: 60px;
+        height: 60px;
+        font-size: .6rem;
+        line-height: .8rem;
+    }
+
+    #page-top span i {
+        font-size: 1.05rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    #page-top {
+        position: fixed;
+        right: 0;
+        bottom: 5px;
+    }
+}
+
+/* -----------------------------------------------
+フッター
+----------------------------------------------- */
+.footer {
+    /* position: fixed;
+    bottom: 0;
+    width: 100%; */
+    padding: 1.8rem 1.5rem;
+    background-color: #740e16;
+    color: #fff;
+}
+
+.footer a {
+    color: #fff;
+    font-size: 14px;
+}
+
+.footer nav ul {
+    list-style: none;
+    display: inline-flex;
+}
+
+.footer nav ul li {
+    margin-left: 30px;
+}
+
+@media screen and (max-width: 1024px) {
+    .footer {
+        padding: 1.5rem 1.5rem;
+    }
+
+    .footer a {
+        font-size: .83rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .footer {
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: center !important;
+    }
+
+    .footer nav ul {
+        display: block;
+        margin: 0;
+        padding: 0;
+        width: 90vw;
+        justify-content: center;
+        align-items: center !important;
+    }
+
+    .footer nav ul li {
+        margin-left: 0;
+        margin-bottom: 10px;
+        padding-bottom: 10px;
+        text-align: center;
+        border-bottom: 1px solid #ffffff7a;
+    }
+
+    .footer small {
+        padding: 20px 0 10px;
+    }
+}

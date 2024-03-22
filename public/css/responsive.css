@@ -1,0 +1,496 @@
+/* -----------------------------------------------
+トップページ
+----------------------------------------------- */
+@media screen and (max-width: 1024px) {
+
+    /* ロゴ */
+    .mv img {
+        top: 50%;
+        width: 280px;
+    }
+
+    /* 新着の予約店舗 */
+    .new-reservation-container {
+        padding: 2rem 0 2.5rem;
+        font-size: .9rem;
+    }
+
+    .new-reservation-container p {
+        line-height: 1.4rem;
+    }
+
+    /* コンテナー */
+    .top-container {
+        display: block;
+        margin: 0 auto;
+        padding: 3rem 0;
+        width: 90%;
+    }
+
+    /* 左右の角丸ボックス */
+    .kadomaru-box-left,
+    .kadomaru-box-right {
+        padding: 2rem 1.6rem;
+        border-radius: 20px;
+    }
+
+    .w-49 {
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    .kadomaru-box-right.w-49 {
+        margin-top: 30px;
+    }
+
+    /* トップの挿絵 */
+    .top-image-1 {
+        height: 100px;
+    }
+
+    /* ひとまず「なごやめし」が見たい！ボタン */
+    .maru-btn-lg-bg {
+        padding: 10px 20px;
+        font-size: 1.1rem;
+    }
+
+    /* カテゴリーリンク */
+    .top-container .category-tags {
+        font-size: 1rem !important;
+    }
+
+    /* 検索ボックス */
+    .top-container .search-form input {
+        font-size: 1.1rem;
+    }
+
+    .top-container .search-form button {
+        padding: 9px 20px 9px 18px;
+        font-size: 1.1rem;
+    }
+
+    /* 画像スライド  */
+    .shops-feature {
+        padding: 0 0 3rem 0;
+    }
+
+    .shops-feature li {
+        height: 200px;
+    }
+
+    /* フッターロゴ */
+    .company-box {
+        padding-bottom: 3rem;
+    }
+
+    .company-box h2 {
+        font-size: 1rem;
+    }
+
+    .company-box p {
+        font-size: .8rem;
+    }
+
+    .top-logo {
+        /* mvロゴから基礎スタイル継承 */
+        width: 200px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+
+    /* 480px以下は非表示 */
+    .adjust-480 {
+        display: none;
+    }
+
+    /* ロゴ */
+    .mv img {
+        top: 50%;
+        width: 280px;
+    }
+
+    /* 角丸ボックス（ヒダリ） */
+    .kadomaru-box-right {
+        padding: 2rem 0;
+    }
+
+    /* 検索機能のタイトル調整 */
+    .h2-title.search-parts.mb-2 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    /* カテゴリーリンク */
+    .top-container .category-tags {
+        font-size: .95rem !important;
+    }
+
+    /* 検索ボックス */
+    .top-container .search-form input {
+        width: 100%;
+        border-radius: 50px;
+        border: 1px solid #ccc;
+        padding: .5rem 1rem;
+        font-size: 1rem;
+    }
+
+    .top-container .search-form button {
+        margin-top: 10px;
+        width: 90%;
+        border-radius: 50px;
+        padding: .5rem 0;
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width: 320px) {
+
+    /* カテゴリーリンク */
+    .kadomaru-box-left .shops-list span {
+        display: block;
+    }
+}
+
+/* -----------------------------------------------
+ユーザーページ
+----------------------------------------------- */
+@media only screen and (min-width:1024px) {
+    .kadomaru-box.user-page {
+        margin: 0 auto;
+        max-width: 900px;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .profile-container {
+        margin: -20px auto 0;
+        max-width: none;
+        width: 65%;
+    }
+
+    .profile-contents-item a {
+        padding: 1.5rem 2rem;
+        font-size: 1.1rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .profile-container {
+        margin: -20px auto 0;
+        max-width: none;
+        width: 90%;
+    }
+}
+
+/* -----------------------------------------------
+お気に入り一覧
+----------------------------------------------- */
+
+@media screen and (max-width: 1024px) {
+    .fav-btn {
+        width: 47px;
+        height: 47px;
+        line-height: 43px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .fav-container {
+        align-items: center;
+    }
+    .fav-container .w-15 {
+        width: 25% !important;
+    }
+
+    .fav-container.callout {
+        padding: 20px;
+    }
+
+    .fav-container-item-btn .kadomaru-btn-red-bg {
+        padding: .3rem .6rem;
+        font-size: .9rem;
+
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .fav-btn {
+        position: relative;
+        top: 5px;
+    }
+
+    .fav-container {
+        display: block;
+    }
+
+    .fav-container figure {
+        margin-right: 0;
+    }
+
+    .favs-image.w-15.mr-2 {
+        width: 100% !important;
+    }
+
+    .fav-container-item {
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    .fav-container-item-btn {
+        margin-top: 20px;
+        position: static;
+        transform: none;
+        text-align: center;
+    }
+
+    .fav-container-item-btn .kadomaru-btn-red-bg {
+        padding: .3rem .6rem;
+        font-size: .9rem;
+
+    }
+}
+
+/* -----------------------------------------------
+店舗一覧ページ
+----------------------------------------------- */
+@media screen and (max-width: 1024px) {
+
+    /* 店舗一覧 */
+    .shops-footer {
+        position: static;
+        margin-top: 20px;
+    }
+
+    /* カテゴリーリンク */
+    .shops-list .category-tags {
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+
+    /* 店舗一覧 */
+    .shops-item {
+        position: relative;
+        padding: 2rem;
+        background-color: #fff;
+        border-radius: 20px;
+    }
+
+    .shops-item .flex-box.justify-around {
+        display: block;
+    }
+
+    .zoom-effect {
+        pointer-events: none;
+    }
+
+    .shops-item figure {
+        margin: 0 auto 20px;
+        width: 100%;
+    }
+
+    .shops-data {
+        width: 100%;
+    }
+
+    .shops-footer {
+        position: static;
+    }
+
+    .adjust-for-max-768 {
+        display: block;
+        margin-top: 20px;
+    }
+
+    .adjust-for-max-768 a {
+        display: inline-block;
+        width: 100%;
+        height: 45px;
+        line-height: 45px;
+        text-align: center;
+        color: #fff;
+        border-radius: 20px;
+        background-color: #740e16;
+    }
+}
+
+@media screen and (max-width: 480px) {
+
+    /* 店舗一覧 */
+    .shops-item .px-2 {
+        padding: 0;
+    }
+
+    .shops-footer {
+        display: block;
+    }
+
+    .shops-footer>div {
+        margin-bottom: 5px;
+    }
+
+    /* 検索機能 */
+    .shops-list-function {
+        position: relative;
+        display: block;
+        text-align: center;
+    }
+
+    /* カテゴリーリンク */
+    .shops-list .category-tags {
+        font-size: .9rem;
+    }
+
+    /* 検索ボックス */
+    .shops-list-function .search-form input {
+        width: 100%;
+        border-radius: 50px;
+        border: 1px solid #ccc;
+        padding: .5rem 1rem;
+        font-size: .9rem;
+    }
+
+    .shops-list-function .search-form button {
+        width: 90%;
+        margin: 10px 0 0;
+        padding: .3rem 0;
+        border-radius: 50px;
+        font-size: .9rem;
+    }
+
+    /* 名古屋駅までの距離ソート */
+    .shops-list-function .search-path {
+        position: absolute;
+        padding: 10px;
+        right: -5px;
+        bottom: -95px;
+        font-size: .9rem;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .shops-item {
+        padding: 1.5rem;
+    }
+}
+
+/* -----------------------------------------------
+店舗詳細ページ
+----------------------------------------------- */
+@media screen and (max-width: 480px) {
+
+    .shops-data-table {
+        margin-bottom: 30px;
+    }
+
+    .shops-data-table th,
+    .shops-data-table td {
+        display: block;
+        width: 100%;
+        border-bottom: none;
+        padding: 10px;
+        box-sizing: border-box;
+    }
+
+    .shops-data-table th {
+        background: #f7f7f7;
+    }
+
+    .about-information tr:last-child {
+        border-bottom: solid 1px #ccc;
+    }
+}
+
+/* -----------------------------------------------
+利用規約・会社情報・お問い合わせ・プライバシーポリシー
+----------------------------------------------- */
+@media screen and (max-width: 480px) {
+    .about-information {
+        width: 100%;
+    }
+
+    .about-information th,
+    .about-information td {
+        display: block;
+        width: 100%;
+        border-bottom: none;
+    }
+
+    .about-information tr:last-child {
+        border-bottom: solid 1px #ccc;
+    }
+}
+
+/* -----------------------------------------------
+有料会員登録・カード情報の編集・有料会員を解除
+----------------------------------------------- */
+@media only screen and (max-width:480px) {
+
+    .card-information th,
+    .card-information td {
+        width: auto;
+        display: block;
+        border-top: none;
+    }
+
+    .card-information tr:first-child {
+        border-top: 1px solid #d5d5d5;
+    }
+}
+
+/* -----------------------------------------------
+予約システム
+----------------------------------------------- */
+@media screen and (max-width: 480px) {
+    .tb01 .head {
+        display: none;
+    }
+
+    .tb01 {
+        width: 100%;
+    }
+
+    table.tb01 td {
+        display: block;
+        width: 100%;
+        border-bottom: none;
+    }
+
+    table.tb01 td:first-child {
+        background: #f4f4f4;
+        font-weight: bold;
+    }
+
+    table.tb01 td:before {
+        content: attr(data-label);
+        font-size: .7rem;
+        font-weight: bold;
+        color: #999;
+        display: block;
+    }
+
+    .tb01 tr:last-child {
+        border-bottom: solid 1px #ccc;
+    }
+}
+
+/* -----------------------------------------------
+予約システム
+----------------------------------------------- */
+@media screen and (max-width: 480px) {
+    .kadomaru-box.adjust-for-320 {
+        padding: 1.5rem;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .kadomaru-box.adjust-for-320 {
+        padding: 1.3rem;
+    }
+
+    .non-user .callout.mb-0 {
+        padding: 1.3rem;
+    }
+}

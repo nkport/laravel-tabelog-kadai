@@ -1,0 +1,132 @@
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ShopsController;
+use App\Http\Controllers\TermsOfServiceController;
+use App\Http\Controllers\PrivacyPolicyController;
+use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\FavoriteController;
+use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\AboutController;
+// use App\Http\Controllers\WebhookController;
+use App\Http\Controllers\HolidayController;
+use App\Http\Controllers\ReservationController;
+use App\Http\Controllers\SubscriptionController;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
+
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider and all of them will
+| be assigned to the "web" middleware group. Make something great!
+|
+*/
+
+// 「/」を指定した時に「resources\views\index.blade.php」へ飛ぶ
+Route::get('/', function () {
+    return view('index');
+});
+
+// デフォルトのダッシュボード
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth', 'verified'])->name('dashboard');
+
+// プロフィール編集周り
+Route::middleware('auth')->group(function () {
+    Route::get('/shops', function () {
+        return view('shops');
+    })->name('shops');
+
+    Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
+    Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+// 正常に動くがprofile/index.blade.phpに飛ばないコード：
+// Route::middleware('auth')->group(function () {
+//     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+//     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+//     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+// });
+
+// 有料会員
+Route::get('/premium-content', function () { // HTTP GET リクエストが /premium-content というパスに対して行われた場合にコールバック関数（無名関数）を実行します、の意味。
+    return view('profile.index'); // 「resources/views/profile/index.blade.php」に遷移します、の意味。
+});
+Route::middleware(['auth', 'verified', 'checkrole:premium'])->group(function () {
+    Route::resource('shops', ShopsController::class);
+    Route::post('favorites/{shops_id}', [FavoriteController::class, 'store'])->name('favorites.store');
+    Route::delete('favorites/{shops_id}', [FavoriteController::class, 'destroy'])->name('favorites.destroy');
+    Route::get('/favorite', [FavoriteController::class, 'index'])->name('profile.favorite');
+    Route::get('/reservation', [ReservationController::class, 'index'])->name('profile.reservation');
+});
+// 下記は有料会員用のページを表示する場合。今後のためにログ残し。
+// 有料コンテンツにアクセスできるのは、ログインしていて premium ロールを持つユーザーだけの意味
+// Route::middleware(['auth', 'checkrole:premium'])->group(function () { // 特定のミドルウェアを適用するためのグループを作成してくださいの意味。
+//     Route::get('/premium-content', function () { //「/premium-content」パスに対するGETリクエストを処理。
+//         GETリクエストとはHTTPメソッドの一つで、URLにアクセスしたい場合、そのURLに対して「URLの呼び出しが行われましたよ～」という信号を送るという意味。
+//         return view('premium-content'); // ユーザーが認証済みであり、かつ premium ロールを持っている場合、premium-content ビューを返す。
+//     });
+// });
+
+require __DIR__ . '/auth.php';
+
+// 店舗一覧
+Route::resource('shops', ShopsController::class);
+Route::get('/shops', [ShopsController::class, 'index'])->name('shops');
+
+// 会社情報
+Route::get('/about', [CompanyController::class, 'show'])->name('company.show');
+
+// プライバシーポリシー
+Route::get('/policy', [PrivacyPolicyController::class, 'show'])->name('policy.show');
+
+// 利用規約
+Route::get('/terms', [TermsOfServiceController::class, 'show'])->name('terms.show');
+
+// NAGOYAMESHIとは？
+Route::get('/introduction', [AboutController::class, 'show'])->name('about.show');
+
+// レビュー投稿
+Route::post('reviews', [ReviewController::class, 'store'])->name('reviews.store');
+
+// 定休日
+Route::resource('holidays', HolidayController::class);
+
+// 予約システム
+Route::get('/reservations', [ReservationController::class, 'index'])->name('reservations.index');
+Route::get('/shops/{shop}/reservations/create', [ReservationController::class, 'create'])->name('reservations.create');
+Route::post('/shops/{shop}/reservations/create', [ReservationController::class, 'store'])->name('reservations.store');
+Route::delete('/reservations/{reservation}', [ReservationController::class, 'destroy'])->name('reservations.destroy');
+
+// サブスクリプション
+Route::get('/subscription/create', [SubscriptionController::class, 'create'])->name('subscription.create');
+Route::post('/subscription/store', [SubscriptionController::class, 'store'])->name('subscription.store');
+Route::get('/subscription/edit', [SubscriptionController::class, 'edit'])->name('subscription.edit');
+Route::match(['put', 'patch'], '/subscription', [SubscriptionController::class, 'update'])->name('subscription.update');
+Route::get('/subscription/cancel', [SubscriptionController::class, 'cancel'])->name('subscription.cancel');
+Route::delete('/subscription/destroy', [SubscriptionController::class, 'destroy'])->name('subscription.destroy');
+// 下記は粘りログ
+// Route::get('/subscription', function () {
+//     return view('profile.subscription');
+// })->middleware(['auth'])->name('profile.subscription');
+// Route::get('/subscription', function () {
+//     return view('profile.subscription', ['intent' => auth()->user()->createSetupIntent()]);
+// })->middleware(['auth'])->name('profile.subscription');
+// Route::post('/user/subscribe', function (Request $request) {
+//     $request->user()->newSubscription(
+//         'default',
+//         'price_1Ot2uaCqDLjiACIR4oxWzSOE'
+//     )->create($request->paymentMethodId);
+//     return redirect('/basic'); // 決済完了後に表示されるページ
+// })->middleware(['auth'])->name('subscribe.post');
+// Route::get('/basic', function () { // Subscription契約者のみアクセス可能なページの設定
+//     return view('profile.basic');
+// })->middleware(['auth'])->name('basic');
+
+// Stripe Webhook
+// Route::post('stripe/webhook', [WebhookController::class, 'handleWebhook']);
+// Route::get('/subscription/portal/{user}', [WebhookController::class, 'portalsubscription'])->name('stripe.portalsubscription');

@@ -1,0 +1,73 @@
+/*==================================================
+トップページ：mvスライダー
+https://coco-factory.jp/ugokuweb/move01/6-1-4/
+===================================*/
+#slider {
+    width: 100%;
+    height: 70vh;
+    z-index: -1;
+}
+
+@media screen and (max-width: 1024px) {
+    #slider {
+        height: 65vh;
+    }
+}
+
+.vegas-timer {
+    display: none;
+}
+
+/*==================================================
+トップページ：コンテンツスライダー
+https://coco-factory.jp/ugokuweb/move01/6-1-8/
+===================================*/
+/* 特になし。参考元を記述。 */
+
+/*==================================================
+店舗詳細ページ：店舗画像のスライダー
+https://coco-factory.jp/ugokuweb/move01/6-1-6/
+===================================*/
+.shops-image {
+    margin: 0;
+}
+
+.shops-image img {
+    width: 100%;
+    height: auto;
+}
+
+/*戻る、次へ矢印の位置*/
+.slick-prev:before, .slick-next:before {
+    display: none;
+}
+
+.shops-image .slick-prev,
+.shops-image .slick-next {
+    position: absolute;
+    /*絶対配置にする*/
+    top: 45%;
+    cursor: pointer;
+    /*マウスカーソルを指マークに*/
+    outline: none;
+    /*クリックをしたら出てくる枠線を消す*/
+    border-top: 2px solid #fff;
+    /*矢印の色*/
+    border-right: 2px solid #fff;
+    /*矢印の色*/
+    height: 15px;
+    width: 15px;
+}
+
+.shops-image .slick-prev {
+    /*戻る矢印の位置と形状*/
+    left: 20px;
+    transform: rotate(-135deg);
+    z-index: 5;
+}
+
+.shops-image .slick-next {
+    /*次へ矢印の位置と形状*/
+    right: 20px;
+    transform: rotate(45deg);
+}
