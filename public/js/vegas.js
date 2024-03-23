@@ -2,19 +2,19 @@
 var windowwidth = window.innerWidth || document.documentElement.clientWidth || 0;
 if (windowwidth > 768) {
     var responsiveImage = [//PC用の画像
-        { src: "/public/img/img_01.jpg" },
-        { src: "/public/img/img_02.jpg" },
-        { src: "/public/img/img_03.jpg" },
-        { src: "/public/img/img_04.jpg" },
-        { src: "/public/img/img_05.jpg" },
+        { src: "https://cf548721.cloudfree.jp/laravel-nagoyameshi/public/img/img_01.jpg" },
+        { src: "https://cf548721.cloudfree.jp/laravel-nagoyameshi/public/img/img_02.jpg" },
+        { src: "https://cf548721.cloudfree.jp/laravel-nagoyameshi/public/img/img_03.jpg" },
+        { src: "https://cf548721.cloudfree.jp/laravel-nagoyameshi/public/img/img_04.jpg" },
+        { src: "https://cf548721.cloudfree.jp/laravel-nagoyameshi/public/img/img_05.jpg" },
     ];
 } else {
     var responsiveImage = [//タブレットサイズ（768px）以下用の画像
-        { src: "/public/img/img_01.jpg" },
-        { src: "/public/img/img_02.jpg" },
-        { src: "/public/img/img_03.jpg" },
-        { src: "/public/img/img_04.jpg" },
-        { src: "/public/img/img_05.jpg" },
+        { src: "https://cf548721.cloudfree.jp/laravel-nagoyameshi/public/img/img_01.jpg" },
+        { src: "https://cf548721.cloudfree.jp/laravel-nagoyameshi/public/img/img_02.jpg" },
+        { src: "https://cf548721.cloudfree.jp/laravel-nagoyameshi/public/img/img_03.jpg" },
+        { src: "https://cf548721.cloudfree.jp/laravel-nagoyameshi/public/img/img_04.jpg" },
+        { src: "https://cf548721.cloudfree.jp/laravel-nagoyameshi/public/img/img_05.jpg" },
     ];
 }
 
