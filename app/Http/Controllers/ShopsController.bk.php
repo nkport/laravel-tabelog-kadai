@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Shops;
-use App\Models\Review;
 use App\Models\Category;
 use App\Models\Holiday;
 use App\Models\ConnectHoliday;
@@ -22,15 +21,12 @@ class ShopsController extends Controller
      */
     public function index(Request $request)
     {
-        // 全ての店舗を取得
-        $shops = Shops::all();
-
-        // カテゴリーを取得
-        $categories = Category::all();
-
         // 名古屋駅の座標（仮の値）
         $nagoyaStationLat = 35.170915;
         $nagoyaStationLng = 136.881637;
+
+        // 全ての店舗を取得
+        $shops = Shops::all();
 
         // 名古屋駅からの距離の処理
         foreach ($shops as $shop) {
@@ -62,6 +58,12 @@ class ShopsController extends Controller
 
         // 全ての店舗を取得し、距離でソートし、ページネーションを適用
         $shops = Shops::orderBy('distance', $sortOrder)->paginate(7);
+        //修正されたコード↑↓どっちがいいんだろう？
+        // if ($sortOrder == 'asc') {
+        //            $shops = $shops->sortBy('distance')->values()->all();
+        //        } else {
+        //           $shops = $shops->sortByDesc('distance')->values()->all();
+        //       }
 
         // カテゴリー選択とキーワード検索
         $keyword = $request->keyword;
@@ -74,39 +76,29 @@ class ShopsController extends Controller
             $total_count = $shops->total();
             $category = null;
         } else {
+            // スコア高い順ソート
+            $sort = $request->sort;
+            $direction = $request->direction;
             $query = Shops::query();
+            if ($sort && $direction) {
+                if ($sort == 'score') {
+                    $query->join('reviews', 'shops.id', '=', 'reviews.shops_id')
+                        ->select('shops.id', 'shops.name', DB::raw('SUM(reviews.score) as total_score'))
+                        ->groupBy('shops.id', 'shops.name')
+                        ->orderBy('total_score', $direction);
+                } else {
+                    $query->orderBy($sort, $direction);
+                }
+            }
+
             $shops = $query->sortable()->paginate(7);
             $total_count = "";
             $category = null;
         }
 
-        // スコアが高い順にレビューを取得
-        $reviews = Review::orderByDesc('score')->get();
+        $categories = Category::all();
 
-        // レビューに関連する店舗IDを取得し、重複を除去
-        $shopIds = $reviews->pluck('shops_id')->unique();
-
-        // 店舗IDに基づいて店舗情報を取得
-        $shops = Shops::whereIn('id', $shopIds)->get();
-
-        // ソート順を取得し、適用する
-        $sort = $request->input('sort');
-        $direction = $request->input('direction', 'asc');
-
-        if ($sort === 'score') {
-            // 店舗のスコアを計算して並び替える
-            $query->orderByRaw('(SELECT SUM(score) FROM reviews WHERE reviews.shops_id = shops.id) ' . $direction);
-        } else {
-            // 他のソートオプションが指定された場合はデフォルトのソート順を適用
-            $query->orderBy('id', 'asc');
-        }
-
-        // 件数表示
-        $shops = $query->sortable()->paginate(7);
-        $total_count = "";
-        $category = null;
-
-        return response(view('shops.index', compact('shops', 'category', 'categories', 'total_count', 'keyword', 'distance', 'reviews')));
+        return response(view('shops.index', compact('shops', 'category', 'categories', 'total_count', 'keyword', 'distance')));
     }
 
     private function haversine($lat1, $lng1, $lat2, $lng2)

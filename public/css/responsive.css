@@ -297,6 +297,7 @@
 
     .shops-footer {
         position: static;
+        margin-bottom: 30px;
     }
 
     .adjust-for-max-768 {

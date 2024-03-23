@@ -37,7 +37,7 @@
                         <option value="sort=created_at&direction=desc">新着順</option>
                         <option value="sort=avg_price_low&direction=asc">価格が安い順</option>
                         <option value="sort=avg_price_high&direction=desc">価格が高い順</option>
-                        {{-- <option value="sort=score&direction=desc">スコアが高い順</option> --}}
+                        <option value="sort=score&direction=desc">スコアが高い順</option>
                     </select>
                 </div>
             </div>
