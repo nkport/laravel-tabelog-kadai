@@ -286,7 +286,7 @@
 見出し
 ----------------------------------------------- */
 .h1-title img {
-    width: 50%;
+    width: 70%;
 }
 
 .h2-title {
@@ -767,7 +767,9 @@ i {
 }
 
 .nav-ul {
+    width: 100%;
     display: flex;
+    justify-content: flex-end;
     align-items: center;
 }
 
@@ -796,6 +798,12 @@ i {
 .nav-li .auth-design .kadomaru-btn-red-line i {
     margin: 0;
     padding: 0;
+}
+
+@media screen and (max-width: 1312px) {
+    .nav-li {
+        padding-left: .5rem;
+    }
 }
 
 @media screen and (max-width: 1024px) {
