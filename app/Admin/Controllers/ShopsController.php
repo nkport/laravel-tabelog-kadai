@@ -12,6 +12,7 @@ use App\Admin\Extensions\Tools\CsvImport;
 use Goodby\CSV\Import\Standard\Lexer;
 use Goodby\CSV\Import\Standard\Interpreter;
 use Goodby\CSV\Import\Standard\LexerConfig;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 
 class ShopsController extends AdminController
@@ -156,6 +157,13 @@ class ShopsController extends AdminController
             [],
             JSON_UNESCAPED_UNICODE
         );
+    }
+
+    public function deleteImage($fileName) {
+        // ダミー画像を削除しない
+        if ($fileName != 'dummy.jpg') {
+            Storage::delete($fileName);
+        }
     }
 
 }

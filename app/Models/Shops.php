@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 // use Illuminate\Support\Facades\Storage;
 use Kyslik\ColumnSortable\Sortable;
-use Illuminate\Support\Facades\Storage;
 
 class Shops extends Model
 {
@@ -56,13 +55,6 @@ class Shops extends Model
     public function getImageAttribute($images)
     {
         return json_decode($images, true);
-    }
-
-    public function deleteImage($fileName) {
-        // ダミー画像を削除しない
-        if ($fileName != 'dummy.jpg') {
-            Storage::delete($fileName);
-        }
     }
 
     public function reservations()
