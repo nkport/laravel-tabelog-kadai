@@ -155,9 +155,9 @@
                 $address = App\Models\Company::select('address')->first();
                 $tel = App\Models\Company::select('tel')->first();
             @endphp
-            <h2 class="h4-title mt-2">{{ optional($variable)->company_name }}</h2>
-            <p>{{ $address->address }}</p>
-            <p>TEL：{{ $tel->tel }}</p>
+            <h2 class="h4-title mt-2">{{ optional($name)->company_name }}</h2>
+            <p>{{ optional($address)->address }}</p>
+            <p>TEL：{{ optional($tel)->tel }}</p>
         </div>
 
     </div>
