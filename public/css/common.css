@@ -800,12 +800,6 @@ i {
     padding: 0;
 }
 
-@media screen and (max-width: 1312px) {
-    .nav-li {
-        padding-left: .5rem;
-    }
-}
-
 @media screen and (max-width: 1024px) {
     .header {
         height: 60px;
