@@ -6,7 +6,7 @@
 <p class="txt-center">
     有料会員様はサブスクリプションを解除しないと<br>
     お支払いが継続してしまいますので、ご注意ください。<br>
-    <a href="{{ route('subscription.cancel') }}" class="text-link txt-red"><strong>有料会員の解除はこちら</strong></a>
+    {{-- <a href="{{ route('subscription.cancel') }}" class="text-link txt-red"><strong>有料会員の解除はこちら</strong></a> --}}
 </p>
 
 <div class="txt-center">
