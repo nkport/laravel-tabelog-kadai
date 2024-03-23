@@ -2,13 +2,10 @@
     {{ __('Delete Account') }}
 </h2>
 
-<p class="txt-center">
-    {!! nl2br(e(__('messages.profile_delete_msg'))) !!}
-</p>
 
 <p class="txt-center">
-    また、有料会員様はサブスクリプションを解除しないとお支払いが継続してしまいます。<br>
-    有料会員の解除は<a href="{{ route('subscription.cancel') }}" class="text-link txt-red font-bold">こちら</a>。
+    有料会員様はサブスクリプションを解除しないとお支払いが継続してしまいますので、ご注意ください。<br>
+    <a href="{{ route('subscription.cancel') }}" class="text-link txt-red">有料会員の解除はこちら</a>
 </p>
 
 <div class="txt-center">
@@ -25,6 +22,10 @@
         <h2 class="mt-4 h2-title">
             {{ __('Are you sure you want to delete your account?') }}
         </h2>
+
+        <p class="txt-center">
+            {!! nl2br(e(__('messages.profile_delete_msg'))) !!}
+        </p>
 
         <p class="txt-center">
             {{ __('Once your account is deleted, all of its resources and data will be permanently deleted. Please enter your password to confirm you would like to permanently delete your account.') }}

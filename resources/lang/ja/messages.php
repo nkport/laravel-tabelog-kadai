@@ -45,7 +45,7 @@ return [
     'profile_edit_title' => '会員情報の編集',
     'profile_edit_profile' => 'お名前、メールアドレスを更新できます。',
     'profile_edit_save' => '保　存',
-    'profile_delete_msg' => '関連するすべてのデータが削除されますので、ご注意ください。',
+    'profile_delete_msg' => '関連するすべてのデータも削除されます。',
 
     // フッター
     'footer_nav_terms' => '利用規約',
