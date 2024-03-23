@@ -2,11 +2,13 @@
     {{ __('Delete Account') }}
 </h2>
 
-<p class="txt-center"> 有料会員の場合はサブスクリプションを解除しないとお支払いが継続してしまいますので、ご注意下さい。
-    有料会員の解除は<a href="{{ route('subscription.cancel') }}" class="text-link txt-red">こちら</a>。</p>
-
 <p class="txt-center">
     {!! nl2br(e(__('messages.profile_delete_msg'))) !!}
+</p>
+
+<p class="txt-center">
+    また、有料会員様はサブスクリプションを解除しないとお支払いが継続してしまいます。<br>
+    有料会員の解除は<a href="{{ route('subscription.cancel') }}" class="text-link txt-red font-bold">こちら</a>。
 </p>
 
 <div class="txt-center">
