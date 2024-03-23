@@ -14,23 +14,38 @@
                 <span class="subtitle">NEW RESERVATIONS</span>
             </h2>
             <ul class="new-reservation">
-                @php $count = 0 @endphp
+                @php
+                    // ループカウンターの初期化
+                    $count = 0;
+
+                    // ビューでソートを行う
+                    $shopsWithReservations = collect($shopsWithReservations)
+                        ->sortByDesc(function ($shopWithReservations) {
+                            // 最初の予約日時を取得して降順に並び替える
+                            return $shopWithReservations['reservations']->first()->reservation_datetime;
+                        })
+                        ->all();
+                @endphp
+
                 @foreach ($shopsWithReservations as $shopWithReservations)
                     @if ($count < 5)
-                        @php $shop = $shopWithReservations['shops'] @endphp
+                        @php $shop = $shopWithReservations['shops']; @endphp
                         <a href="{{ route('shops.show', $shop->id) }}">
                             <li class="new-reservation-item">
                                 <div class="txt-center">
-                                    <h4 class="h4-title">{{ $shopWithReservations['shops']->name }}</h4>
+                                    <h4 class="h4-title">{{ $shop->name }}</h4>
                                     @foreach ($shopWithReservations['reservations'] as $reservation)
                                         @if ($count < 5)
                                             <figure class="py-1 txt-center">
                                                 <img src="{{ asset('img/top_icon_1.svg') }}" alt="お店アイコン"
                                                     class="m-auto" width="15%">
                                             </figure>
-                                            <p><strong>{{ \Carbon\Carbon::parse($reservation->reservation_datetime)->format('Y年m月d日') }}</strong>に、<br><strong>{{ $reservation->number_of_guests }}人</strong>の予約がありました！
+                                            <p>
+                                                <strong>{{ \Carbon\Carbon::parse($reservation->reservation_datetime)->format('Y年m月d日') }}</strong>に、
+                                                <br>
+                                                <strong>{{ $reservation->number_of_guests }}人</strong>の予約がありました！
                                             </p>
-                                            @php $count++ @endphp
+                                            @php $count++; @endphp
                                         @endif
                                     @endforeach
                                 </div>
