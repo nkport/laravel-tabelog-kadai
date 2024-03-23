@@ -70,7 +70,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vegas/2.4.4/vegas.min.js"></script>
 
     {{-- 後で消す --}}
-    <script src="https://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/6-1-4/js/6-1-4.js"></script>
+    {{-- <script src="https://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/6-1-4/js/6-1-4.js"></script> --}}
 
     <script src="{{ asset('js/slick.js') }}"></script>
 
