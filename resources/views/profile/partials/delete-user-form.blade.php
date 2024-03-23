@@ -2,6 +2,9 @@
     {{ __('Delete Account') }}
 </h2>
 
+<p class="txt-center"> 有料会員の場合はサブスクリプションを解除しないとお支払いが継続してしまいますので、ご注意下さい。
+    有料会員の解除は<a href="{{ route('subscription.cancel') }}" class="text-link txt-red">こちら</a>。</p>
+
 <p class="txt-center">
     {!! nl2br(e(__('messages.profile_delete_msg'))) !!}
 </p>
@@ -9,8 +12,6 @@
 <div class="txt-center">
     <x-danger-button class="mt-3 kadomaru-btn-red-line" x-data=""
         x-on:click.prevent="$dispatch('open-modal', 'confirm-user-deletion')">{{ __('Delete Account') }}</x-danger-button>
-    <p> 有料会員の場合はサブスクリプションを解除しないとお支払いが継続してしまいますので、ご注意下さい。
-        有料会員の解除は<a href="{{ route('subscription.cancel') }}" class="text-link txt-red">こちら</a>。</p>
 </div>
 
 <x-modal name="confirm-user-deletion" :show="$errors->userDeletion->isNotEmpty()" focusable>
