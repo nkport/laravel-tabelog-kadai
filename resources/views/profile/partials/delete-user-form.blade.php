@@ -9,6 +9,8 @@
 <div class="txt-center">
     <x-danger-button class="mt-3 kadomaru-btn-red-line" x-data=""
         x-on:click.prevent="$dispatch('open-modal', 'confirm-user-deletion')">{{ __('Delete Account') }}</x-danger-button>
+    <p> 有料会員の場合はサブスクリプションを解除しないとお支払いが継続してしまいますので、ご注意下さい。
+        有料会員の解除は<a href="{{ route('subscription.cancel') }}" class="text-link txt-red">こちら</a>。</p>
 </div>
 
 <x-modal name="confirm-user-deletion" :show="$errors->userDeletion->isNotEmpty()" focusable>
@@ -22,15 +24,14 @@
         </h2>
 
         <p class="txt-center">
-            有料会員の場合はサブスクリプションを解除しないとお支払いが継続してしまいますので、ご注意下さい。
-            有料会員の解除は<a href="{{ route('subscription.cancel') }}">こちら</a>。
             {{ __('Once your account is deleted, all of its resources and data will be permanently deleted. Please enter your password to confirm you would like to permanently delete your account.') }}
         </p>
 
         <div class="mt-1 txt-center">
             <x-input-label class="display-none" for="password" value="{{ __('Password') }}" />
             <div class="form-group">
-                <x-text-input id="password" name="password" type="password" class="mt-1" placeholder="{{ __('Password') }}" />
+                <x-text-input id="password" name="password" type="password" class="mt-1"
+                    placeholder="{{ __('Password') }}" />
             </div>
             <x-input-error :messages="$errors->userDeletion->get('password')" class="mt-2" />
         </div>
