@@ -374,8 +374,10 @@ input[type=checkbox]:checked+.checkbox::after {
 
 .shops-footer {
     display: flex;
-    /* position: absolute;
-    bottom: 2.5rem; */
+    /*
+    position: absolute;
+    bottom: 2.5rem;
+     */
 }
 
 .shops-footer>div {
