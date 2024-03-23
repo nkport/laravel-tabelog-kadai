@@ -60,7 +60,7 @@ return [
             'driver' => 'local',
             'root' => public_path(''),
             'visibility' => 'public',
-            'url' => env('APP_URL'). '/public',
+            'url' => env('APP_URL'). '/laravel-nagoyameshi/public',
         ],
 
     ],
