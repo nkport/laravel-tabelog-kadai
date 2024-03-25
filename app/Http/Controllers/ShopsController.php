@@ -57,54 +57,37 @@ class ShopsController extends Controller
             $shop->save(); // データベースに保存
         }
 
-        // プルダウンの選択に基づいてソート順を決定
-        $sortOrder = $request->input('sort_order', 'asc');
-
-        // 全ての店舗を取得し、距離でソートし、ページネーションを適用
-        $shops = Shops::orderBy('distance', $sortOrder)->paginate(7);
-
         // カテゴリー選択とキーワード検索
         $keyword = $request->keyword;
+        $query = Shops::query();
+
         if ($request->category !== null) {
-            $shops = Shops::where('category_id', $request->category)->sortable()->paginate(7);
-            $total_count = Shops::where('category_id', $request->category)->count();
+            $query->where('category_id', $request->category);
             $category = Category::find($request->category);
         } elseif ($keyword !== null) {
-            $shops = Shops::where('name', 'like', "%{$keyword}%")->sortable()->paginate(7);
-            $total_count = $shops->total();
+            $query->where('name', 'like', "%{$keyword}%");
             $category = null;
         } else {
-            $query = Shops::query();
-            $shops = $query->sortable()->paginate(7);
-            $total_count = "";
             $category = null;
         }
 
         // スコアが高い順にレビューを取得
         $reviews = Review::orderByDesc('score')->get();
-
-        // レビューに関連する店舗IDを取得し、重複を除去
         $shopIds = $reviews->pluck('shops_id')->unique();
 
-        // 店舗IDに基づいて店舗情報を取得
-        $shops = Shops::whereIn('id', $shopIds)->get();
+        $query->whereIn('id', $shopIds);
 
-        // ソート順を取得し、適用する
         $sort = $request->input('sort');
         $direction = $request->input('direction', 'asc');
 
         if ($sort === 'score') {
-            // 店舗のスコアを計算して並び替える
             $query->orderByRaw('(SELECT SUM(score) FROM reviews WHERE reviews.shops_id = shops.id) ' . $direction);
         } else {
-            // 他のソートオプションが指定された場合はデフォルトのソート順を適用
             $query->orderBy('id', 'asc');
         }
 
-        // 件数表示
         $shops = $query->sortable()->paginate(7);
-        $total_count = "";
-        $category = null;
+        $total_count = $shops->total();
 
         return response(view('shops.index', compact('shops', 'category', 'categories', 'total_count', 'keyword', 'distance', 'reviews')));
     }
