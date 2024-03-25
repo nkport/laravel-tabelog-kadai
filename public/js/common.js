@@ -44,3 +44,17 @@ spMenuBtn2.addEventListener("click", () => {
     headerNavBtn.classList.toggle("active");
     navUl.classList.toggle("active");
 });
+
+// ソート機能
+function sortShops() {
+    var selectElement = document.getElementById("sort-select");
+    var selectedValue = selectElement.options[selectElement.selectedIndex].value;
+    var currentUrl = window.location.pathname + window.location.search;
+    var newUrl;
+    if (currentUrl.includes("?")) {
+        newUrl = currentUrl + "&" + selectedValue;
+    } else {
+        newUrl = currentUrl + "?" + selectedValue;
+    }
+    window.location.href = newUrl;
+}

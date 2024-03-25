@@ -39,6 +39,9 @@
                         <option value="sort=avg_price_high&direction=desc">価格が高い順</option>
                         <option value="sort=score&direction=desc">スコアが高い順</option>
                     </select>
+                    <script>
+
+                    </script>
                 </div>
             </div>
 
