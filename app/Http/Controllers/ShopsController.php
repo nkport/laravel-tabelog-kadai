@@ -25,6 +25,9 @@ class ShopsController extends Controller
         // 全ての店舗を取得
         $shops = Shops::all();
 
+        // カテゴリーを取得
+        $categories = Category::all();
+
         // 名古屋駅の座標（仮の値）
         $nagoyaStationLat = 35.170915;
         $nagoyaStationLng = 136.881637;
@@ -55,40 +58,42 @@ class ShopsController extends Controller
         }
 
         // カテゴリー選択とキーワード検索
-        $categories = Category::all();
         $keyword = $request->keyword;
+        $query = Shops::query();
 
         if ($request->category !== null) {
-            $shops = Shops::where('category_id', $request->category)->sortable()->paginate(7);
-            $total_count = Shops::where('category_id', $request->category)->count();
+            $query->where('category_id', $request->category);
             $category = Category::find($request->category);
         } elseif ($keyword !== null) {
-            $shops = Shops::where('name', 'like', "%{$keyword}%")->sortable()->paginate(7);
-            $total_count = $shops->total();
+            $query->where('name', 'like', "%{$keyword}%");
             $category = null;
         } else {
-            $shops = Shops::sortable()->paginate(7);
-            $total_count = "";
             $category = null;
         }
 
-        // スコアが高い順にレビューを取得（※テーブルが違うため）
-        $reviews = Review::orderByDesc('score')->get();
-        $shopIds = $reviews->pluck('shops_id')->unique();
-        $query = Shops::query();
-
-        $query->whereIn('id', $shopIds);
-
+        // ソート機能
         $sort = $request->input('sort');
         $direction = $request->input('direction', 'asc');
 
         if ($sort === 'score') {
+            $reviews = Review::orderByDesc('score')->get();
+            $shopIds = $reviews->pluck('shops_id')->unique();
+            $query->whereIn('id', $shopIds);
             $query->orderByRaw('(SELECT SUM(score) FROM reviews WHERE reviews.shops_id = shops.id) ' . $direction);
+        } elseif ($sort === 'created_at') {
+            $query->orderBy('created_at', $direction);
+        } elseif ($sort === 'avg_price_low') {
+            $query->orderBy('avg_price_low', 'asc');
+        } elseif ($sort === 'avg_price_high') {
+            $query->orderBy('avg_price_high', 'desc');
         } else {
             $query->orderBy('id', 'asc');
         }
 
-        return response(view('shops.index', compact('shops', 'category', 'categories', 'total_count', 'keyword', 'distance', 'reviews')));
+        $shops = $query->paginate(7);
+        $total_count = $shops->total();
+
+        return response(view('shops.index', compact('shops', 'category', 'categories', 'total_count', 'keyword', 'distance')));
     }
 
     private function haversine($lat1, $lng1, $lat2, $lng2)
