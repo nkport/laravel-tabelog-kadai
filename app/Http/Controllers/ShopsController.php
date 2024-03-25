@@ -71,7 +71,30 @@ class ShopsController extends Controller
             $category = null;
         }
 
-        // スコアが高い順にレビューを取得
+        // ソート機能
+        $sort = $request->query('sort');
+        $sortQuery = Shops::query();
+
+        if ($sort) {
+            switch ($sort) {
+                case 'created_at':
+                    $sortQuery->orderBy('created_at', 'desc');
+                    break;
+                case 'avg_price_low':
+                    $sortQuery->orderBy('avg_price_low', 'asc');
+                    break;
+                case 'avg_price_high':
+                    $sortQuery->orderBy('avg_price_high', 'desc');
+                    break;
+                default:
+                    $sortQuery->orderBy('created_at', 'desc');
+                    break;
+            }
+        }
+
+        $sortItem = $query->get();
+
+        // スコアが高い順にレビューを取得（※テーブルが違うため）
         $reviews = Review::orderByDesc('score')->get();
         $shopIds = $reviews->pluck('shops_id')->unique();
 
@@ -89,7 +112,7 @@ class ShopsController extends Controller
         $shops = $query->sortable()->paginate(7);
         $total_count = $shops->total();
 
-        return response(view('shops.index', compact('shops', 'category', 'categories', 'total_count', 'keyword', 'distance', 'reviews')));
+        return response(view('shops.index', compact('shops', 'category', 'categories', 'total_count', 'keyword', 'distance', 'reviews', 'sortItem')));
     }
 
     private function haversine($lat1, $lng1, $lat2, $lng2)
