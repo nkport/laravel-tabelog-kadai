@@ -92,7 +92,6 @@ class ShopsController extends Controller
         // ソート順を取得し、適用する
         $sort = $request->input('sort');
         $direction = $request->input('direction', 'asc');
-        $query = Shops::query();
 
         if ($sort === 'score') {
             // 店舗のスコアを計算して並び替える
