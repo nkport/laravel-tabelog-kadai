@@ -28,8 +28,7 @@
 
                                     <div class="form-group">
                                         <label for="reservation_date">予約日</label>
-                                        <input id="reservation_date" type="date" class="form-control w-100"
-                                            name="reservation_date" required>
+                                        <input id="reservation_date" type="date" class="form-control w-100" name="reservation_date" required min="{{ $today }}">
                                     </div>
 
                                     <div class="form-group">

@@ -7,6 +7,7 @@ use App\Models\Reservation;
 use App\Models\Shops;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
+use Carbon\Carbon;
 
 class ReservationController extends Controller
 {
@@ -32,7 +33,8 @@ class ReservationController extends Controller
     {
         try {
             $shop = Shops::findOrFail($id); // モデルが見つからなかった場合に例外がスローされる
-            return view('reservations.create', compact('shop'));
+            $today = Carbon::now()->subHours(2)->format('Y-m-d'); // 今日の日付を取得し、2時間前に設定
+            return view('reservations.create', compact('shop', 'today'));
         } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
             abort(404); // 例外が起きた際に404エラーを返す
         }
