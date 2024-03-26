@@ -28,7 +28,8 @@
 
                                     <div class="form-group">
                                         <label for="reservation_date">予約日</label>
-                                        <input id="reservation_date" type="date" class="form-control w-100" name="reservation_date" required min="{{ $today }}">
+                                        <input id="reservation_date" type="date" class="form-control w-100"
+                                            name="reservation_date" required min="{{ $today }}">
                                     </div>
 
                                     <div class="form-group">
@@ -51,6 +52,46 @@
                                     <button type="submit"
                                         class="kadomaru-btn-green-bg w-100 border-none mt-4">予約する</button>
                                 </form>
+
+                                <script>
+                                    document.addEventListener('DOMContentLoaded', function() {
+                                        var today = new Date();
+                                        var twoHoursAhead = new Date(today.getTime() + 2 * 60 * 60 * 1000); // 2 hours ahead
+
+                                        document.getElementById('reservation_date').min = formatDate(twoHoursAhead);
+
+                                        document.getElementById('reservation_date').addEventListener('change', function() {
+                                            validateReservationTime();
+                                        });
+
+                                        document.getElementById('reservation_time').addEventListener('change', function() {
+                                            validateReservationTime();
+                                        });
+
+                                        function validateReservationTime() {
+                                            var selectedDate = new Date(document.getElementById('reservation_date').value);
+                                            var selectedTime = document.getElementById('reservation_time').value;
+
+                                            var selectedDateTime = new Date(selectedDate.getFullYear(), selectedDate.getMonth(), selectedDate
+                                                .getDate(),
+                                                parseInt(selectedTime.split(':')[0]), parseInt(selectedTime.split(':')[1]));
+
+                                            if (selectedDateTime < twoHoursAhead) {
+                                                alert('当日のご予約は2時間前までしか受け付けておりません。');
+                                                document.getElementById('reservation_date').value = '';
+                                                document.getElementById('reservation_time').value = '';
+                                            }
+                                        }
+
+                                        function formatDate(date) {
+                                            var year = date.getFullYear();
+                                            var month = ('0' + (date.getMonth() + 1)).slice(-2);
+                                            var day = ('0' + date.getDate()).slice(-2);
+                                            return year + '-' + month + '-' + day;
+                                        }
+                                    });
+                                </script>
+
 
                             </div>
 
