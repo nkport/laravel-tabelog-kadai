@@ -9,8 +9,7 @@
                     @if (auth()->user()->role === 'premium')
                         <h2 class="h2-title">ご予約ページ</h2>
                         <div class="reservations-container">
-                            {{-- <p class="txt-center">※当日のご予約は2時間前までとなります。</p> --}}
-                            <p class="txt-center">※当日のご予約は各店舗に直接お問い合わせください。</p>
+                            <p class="txt-center">※当日のご予約は2時間前までとなります。</p>
                             @if ($errors->any())
                                 <div class="alert alert-danger">
                                     <ul>

@@ -69,7 +69,7 @@ class ReservationController extends Controller
         $availableDates = [];
         $currentDate = $startDate->copy();
         while ($currentDate->lte($endDate)) {
-            if ($currentDate->format('Y-m-d') != $today && !in_array($currentDate->format('N'), $closedDays)) { // 今日の日付と定休日を除外
+            if (!in_array($currentDate->format('N'), $closedDays)) { // 定休日でない場合のみ追加
                 $availableDates[] = $currentDate->format('Y-m-d');
             }
             $currentDate->addDay(); // 日付を1日進める
