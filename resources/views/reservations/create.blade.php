@@ -9,8 +9,8 @@
                     @if (auth()->user()->role === 'premium')
                         <h2 class="h2-title">ご予約ページ</h2>
                         <div class="reservations-container">
-                            <p class="txt-center">※当日のご予約は2時間前までとなります。</p>
-                            {{-- <p>※当日のご予約は各店舗に直接お問い合わせください。</p> --}}
+                            {{-- <p class="txt-center">※当日のご予約は2時間前までとなります。</p> --}}
+                            <p class="txt-center">※当日のご予約は各店舗に直接お問い合わせください。</p>
                             @if ($errors->any())
                                 <div class="alert alert-danger">
                                     <ul>
@@ -28,14 +28,22 @@
 
                                     <div class="form-group">
                                         <label for="reservation_date">予約日</label>
-                                        <input id="reservation_date" type="date" class="form-control w-100"
-                                            name="reservation_date" required min="{{ $today }}">
+                                        <select id="reservation_date" class="form-control w-100" name="reservation_date" required>
+                                            <option value="" disabled selected>選択してください</option>
+                                            @foreach ($availableDates as $date)
+                                                <option value="{{ $date }}">{{ $date }}</option>
+                                            @endforeach
+                                        </select>
                                     </div>
 
                                     <div class="form-group">
                                         <label for="reservation_time">予約時間</label>
-                                        <input id="reservation_time" type="time" class="form-control w-100"
-                                            name="reservation_time" required>
+                                        <select id="reservation_time" class="form-control w-100" name="reservation_time" required>
+                                            <option value="" disabled selected>選択してください</option>
+                                            @foreach ($availableTimes as $time)
+                                                <option value="{{ $time }}">{{ $time }}</option>
+                                            @endforeach
+                                        </select>
                                     </div>
 
                                     <div class="form-group">
