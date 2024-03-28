@@ -27,7 +27,8 @@
 
                                     <div class="form-group">
                                         <label for="reservation_date">予約日</label>
-                                        <select id="reservation_date" class="form-control w-100" name="reservation_date" required>
+                                        <select id="reservation_date" class="form-control w-100" name="reservation_date"
+                                            required>
                                             <option value="" disabled selected>選択してください</option>
                                             @foreach ($availableDates as $date)
                                                 <option value="{{ $date }}">{{ $date }}</option>
@@ -37,7 +38,8 @@
 
                                     <div class="form-group">
                                         <label for="reservation_time">予約時間</label>
-                                        <select id="reservation_time" class="form-control w-100" name="reservation_time" required>
+                                        <select id="reservation_time" class="form-control w-100" name="reservation_time"
+                                            required>
                                             <option value="" disabled selected>選択してください</option>
                                             @foreach ($availableTimes as $time)
                                                 <option value="{{ $time }}">{{ $time }}</option>
@@ -61,44 +63,40 @@
                                 </form>
 
                                 <script>
-                                    document.addEventListener('DOMContentLoaded', function() {
-                                        var today = new Date();
-                                        var twoHoursAhead = new Date(today.getTime() + 2 * 60 * 60 * 1000); // 2 hours ahead
+                                    document.addEventListener("DOMContentLoaded", function() {
+                                        var reservationDateSelect = document.getElementById("reservation_date");
+                                        var reservationTimeSelect = document.getElementById("reservation_time");
 
-                                        document.getElementById('reservation_date').min = formatDate(twoHoursAhead);
+                                        reservationDateSelect.addEventListener("change", function() {
+                                            var selectedDate = new Date(this.value);
+                                            var today = new Date();
+                                            var deadline = new Date(today);
+                                            deadline.setHours(today.getHours() + 2); // 当日の2時間前の時間
 
-                                        document.getElementById('reservation_date').addEventListener('change', function() {
-                                            validateReservationTime();
-                                        });
-
-                                        document.getElementById('reservation_time').addEventListener('change', function() {
-                                            validateReservationTime();
-                                        });
-
-                                        function validateReservationTime() {
-                                            var selectedDate = new Date(document.getElementById('reservation_date').value);
-                                            var selectedTime = document.getElementById('reservation_time').value;
-
-                                            var selectedDateTime = new Date(selectedDate.getFullYear(), selectedDate.getMonth(), selectedDate
-                                                .getDate(),
-                                                parseInt(selectedTime.split(':')[0]), parseInt(selectedTime.split(':')[1]));
-
-                                            if (selectedDateTime < twoHoursAhead) {
-                                                alert('当日のご予約は2時間前までしか受け付けておりません。');
-                                                document.getElementById('reservation_date').value = '';
-                                                document.getElementById('reservation_time').value = '';
+                                            if (selectedDate.toDateString() === today.toDateString()) {
+                                                // 当日の場合、予約時間を制限する
+                                                var options = reservationTimeSelect.options;
+                                                for (var i = 0; i < options.length; i++) {
+                                                    var time = options[i].value.split(":");
+                                                    var reservationTime = new Date();
+                                                    reservationTime.setHours(time[0]);
+                                                    reservationTime.setMinutes(time[1]);
+                                                    if (reservationTime < deadline) {
+                                                        options[i].disabled = true;
+                                                    } else {
+                                                        options[i].disabled = false;
+                                                    }
+                                                }
+                                            } else {
+                                                // 他の日の場合、すべての予約時間を有効にする
+                                                var options = reservationTimeSelect.options;
+                                                for (var i = 0; i < options.length; i++) {
+                                                    options[i].disabled = false;
+                                                }
                                             }
-                                        }
-
-                                        function formatDate(date) {
-                                            var year = date.getFullYear();
-                                            var month = ('0' + (date.getMonth() + 1)).slice(-2);
-                                            var day = ('0' + date.getDate()).slice(-2);
-                                            return year + '-' + month + '-' + day;
-                                        }
+                                        });
                                     });
                                 </script>
-
 
                             </div>
 

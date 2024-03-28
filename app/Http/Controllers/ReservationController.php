@@ -33,7 +33,7 @@ class ReservationController extends Controller
     {
         try {
             $shop = Shops::findOrFail($id);
-            $today = Carbon::now()->subHours(2);
+            $today = Carbon::now();
             $maxReservationDate = Carbon::now()->addDays(14); // 2週間後までの予約を制限
             $availableDates = $this->getAvailableDates($shop, $today, $maxReservationDate); // 予約可能な日付のリストを取得
             $availableTimes = $this->getAvailableTimes($shop); // 店舗の営業時間内の時間のリストを取得
@@ -42,20 +42,7 @@ class ReservationController extends Controller
         } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
             abort(404);
         }
-
-        // ショップのデータを取得してビューに渡す
-        // $shop = Shops::find($id);
-
-        // ショップの開始時間と終了時間を取得
-        // $openTime = $shop->open_time;
-        // $closeTime = $shop->close_time;
-        // $openTime = substr($shop->open_time, 0, 2) . ':00'; // 例: "18:05:11" -> "18:00"
-        // $closeTime = substr($shop->close_time, 0, 2) . ':00'; // 例: "01:33:54" -> "01:00"
-
-        // ビューにデータを渡す
-        // return view('reservations.create', compact('shop', 'openTime', 'closeTime'));
     }
-
 
     private function getAvailableDates($shop, $startDate, $endDate)
     {
@@ -89,13 +76,28 @@ class ReservationController extends Controller
 
         // 営業時間内の時間のリストを生成
         $availableTimes = [];
-        $currentTime = $openTime->copy();
-        while ($currentTime->lt($closeTime)) {
-            $currentTimeString = $currentTime->format('H:i');
-            if (!in_array($currentTime->format('N'), $closedDays)) { // 定休日でない場合のみ追加
-                $availableTimes[] = $currentTimeString;
+
+        // 閉店時間が開店時間よりも前の場合の処理
+        if ($closeTime->lt($openTime)) {
+            // 閉店時間までのリストを生成
+            $currentTime = $openTime->copy();
+            while ($currentTime->lt(Carbon::tomorrow()->setTime($closeTime->hour, $closeTime->minute, $closeTime->second))) {
+                $currentTimeString = $currentTime->format('H:i');
+                if (!in_array($currentTime->format('N'), $closedDays)) { // 定休日でない場合のみ追加
+                    $availableTimes[] = $currentTimeString;
+                }
+                $currentTime->addMinutes(30); // 30分単位で時間を追加
             }
-            $currentTime->addMinutes(30); // 30分単位で時間を追加
+        } else {
+            // 閉店時間までのリストを生成
+            $currentTime = $openTime->copy();
+            while ($currentTime->lt($closeTime)) {
+                $currentTimeString = $currentTime->format('H:i');
+                if (!in_array($currentTime->format('N'), $closedDays)) { // 定休日でない場合のみ追加
+                    $availableTimes[] = $currentTimeString;
+                }
+                $currentTime->addMinutes(30); // 30分単位で時間を追加
+            }
         }
 
         return $availableTimes;
